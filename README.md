@@ -26,7 +26,6 @@ The project involves training LLMs on two primary datasets, with additional data
 - **Comprehensive RAG Q&A** for subjective question assessment.
 
 #### Dataset References
-|
 | Datasets                     | Related Research Paper                                                                 | Website Link                                                                                     |
 |------------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
 | RAG-Meadow-MedQA          | Medalpaca - an open-source collection of RAG conversational AI models and training data (Han. T., 2023) | [RAG-Meadow-MedQA](https://huggingface.co/datasets/medalpaca/RAG_meadow_medqa)           |
