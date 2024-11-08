@@ -11,9 +11,9 @@ You are a helpful and informative assistant. Provide only the response text, wit
 """
 
 # Load the pre-trained model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained(r"C:\Users\Computing\Downloads\llm-llama\llm-llama\llm-llama\llama-2-7b-arunabh")
+tokenizer = AutoTokenizer.from_pretrained(r"C:\Users\Computing\Downloads\llm-llama\llm-llama\llm-llama\llama-2-7b-sachin")
 model = AutoPeftModelForCausalLM.from_pretrained(
-    r"C:\Users\Computing\Downloads\llm-llama\llm-llama\llm-llama\llama-2-7b-arunabh",
+    r"C:\Users\Computing\Downloads\llm-llama\llm-llama\llm-llama\llama-2-7b-sachin",
     low_cpu_mem_usage=True,      # Optimize model loading to use less CPU memory
     return_dict=True,            # Return the model outputs as a dictionary
     torch_dtype=torch.float16,   # Use float16 precision to reduce memory usage

@@ -12,11 +12,11 @@ You are a helpful and informative assistant. Your goal is to answer questions ac
 """
 
 # Load the tokenizer for the language model
-tokenizer = AutoTokenizer.from_pretrained(r"C:\Users\Computing\Downloads\Two Models\llm-llama\llm-llama\llama-2-7b-arunabh")
+tokenizer = AutoTokenizer.from_pretrained(r"C:\Users\Computing\Downloads\Two Models\llm-llama\llm-llama\llama-2-7b-Sachin")
 
 # Load the model with configurations for efficient memory usage and GPU support
 model = AutoPeftModelForCausalLM.from_pretrained(
-    r"C:\Users\Computing\Downloads\Two Models\llm-llama\llm-llama\llama-2-7b-arunabh",
+    r"C:\Users\Computing\Downloads\Two Models\llm-llama\llm-llama\llama-2-7b-sachin",
     low_cpu_mem_usage=True,      # Optimize for lower CPU memory usage
     return_dict=True,            # Return outputs as a dictionary
     torch_dtype=torch.float16,   # Use float16 precision to save memory

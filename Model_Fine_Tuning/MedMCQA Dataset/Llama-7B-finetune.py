@@ -21,7 +21,7 @@ logger = logging.getLogger()
 # Define model names and configuration
 base_model = "meta-llama/Llama-2-7b-chat-hf"  # Pre-trained base model for fine-tuning
 # base_model = "meta-llama/Llama-2-7b-hf"  # Alternative pre-trained base model
-new_model = "llama-2-7b-arunabh"  # Directory name for saving the fine-tuned model
+new_model = "llama-2-7b-sachin"  # Directory name for saving the fine-tuned model
 compute_dtype = getattr(torch, "float16")  # Set computation dtype to float16
 
 # Configure quantization for efficient model storage and computation

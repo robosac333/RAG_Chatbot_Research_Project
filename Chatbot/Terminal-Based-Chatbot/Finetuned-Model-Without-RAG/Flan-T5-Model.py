@@ -1,7 +1,7 @@
 from transformers import T5ForConditionalGeneration, T5Tokenizer, GenerationConfig
 
 # Path to the fine-tuned T5 model on the local system
-model = r'C:\Users\Computing\Downloads\Two Models\Flan-T5-Model\Flan-T5-Model\T5-Finetune-Arunabh'
+model = r'C:\Users\Computing\Downloads\Two Models\Flan-T5-Model\Flan-T5-Model\T5-Finetune-sachin'
 
 # Load the fine-tuned T5 model for conditional generation of text
 finetuned_model = T5ForConditionalGeneration.from_pretrained(model)

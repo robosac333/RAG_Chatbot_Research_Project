@@ -20,7 +20,7 @@ logger = logging.getLogger()
 
 # Define the base model and the new model name
 base_model = "meta-llama/Llama-2-7b-chat-hf"
-new_model = "llama-2-7b-arunabh"
+new_model = "llama-2-7b-sachin"
 
 # Set the data type for computation (16-bit floating point)
 compute_dtype = getattr(torch, "float16")

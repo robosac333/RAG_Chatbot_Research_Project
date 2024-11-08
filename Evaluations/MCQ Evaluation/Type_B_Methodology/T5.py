@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from torch.nn.functional import sigmoid
 
 # Load the pre-trained tokenizer, model, and embeddings
-model_path = "/home/computing/Downloads/Test/T5-Finetune-Arunabh"
+model_path = "/home/computing/Downloads/Test/T5-Finetune-sachin"
 model = AutoModelForSeq2SeqLM.from_pretrained(model_path).to('cuda')
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 

@@ -10,9 +10,9 @@ import torch.nn.functional as F
 from auto_gptq import exllama_set_max_input_length
 from torch.nn.functional import sigmoid
 # Load the pre-trained tokenizer, model, and embeddings
-tokenizer = AutoTokenizer.from_pretrained(r"C:\Users\Computing\Downloads\New folder\llama-2-7b-arunabh")
+tokenizer = AutoTokenizer.from_pretrained(r"C:\Users\Computing\Downloads\New folder\llama-2-7b-sachin")
 model = AutoModelForCausalLM.from_pretrained(
-    r"C:\Users\Computing\Downloads\New folder\llama-2-7b-arunabh",
+    r"C:\Users\Computing\Downloads\New folder\llama-2-7b-sachin",
     torch_dtype=torch.float16,
     device_map="cuda"
 )

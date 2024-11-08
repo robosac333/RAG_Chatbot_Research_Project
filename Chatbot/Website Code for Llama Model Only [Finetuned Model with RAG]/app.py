@@ -16,11 +16,11 @@ You are a helpful and informative assistant. Your goal is to answer questions ac
 """
 
 # Load the tokenizer from the specified path (Mistral-finetuned model)
-tokenizer = AutoTokenizer.from_pretrained(r"C:\Users\Computing\Downloads\Project\Llama\llama-2-7b-arunabh")
+tokenizer = AutoTokenizer.from_pretrained(r"C:\Users\Computing\Downloads\Project\Llama\llama-2-7b-sachin")
 
 # Load the fine-tuned model for causal language modeling with specific configurations
 model = AutoPeftModelForCausalLM.from_pretrained(
-    r"C:\Users\Computing\Downloads\Project\Llama\llama-2-7b-arunabh",
+    r"C:\Users\Computing\Downloads\Project\Llama\llama-2-7b-sachin",
     low_cpu_mem_usage=True,          # Optimize memory usage for the model
     return_dict=True,                # Ensure the model returns output as a dictionary
     torch_dtype=torch.float16,       # Use half-precision to save GPU memory

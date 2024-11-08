@@ -11,7 +11,7 @@ You are a helpful and informative assistant. Your goal is to answer questions ac
 """
 
 # Load the pre-trained model and tokenizer for sequence-to-sequence tasks
-model_path = r"C:\Users\Computing\Downloads\Flan-T5-Model\Flan-T5-Model\T5-Finetune-Arunabh"
+model_path = r"C:\Users\Computing\Downloads\Flan-T5-Model\Flan-T5-Model\T5-Finetune-Sachin"
 model = AutoModelForSeq2SeqLM.from_pretrained(model_path)  # Load the model
 tokenizer = AutoTokenizer.from_pretrained(model_path)      # Load the tokenizer
 

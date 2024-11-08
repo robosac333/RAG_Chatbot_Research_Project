@@ -122,7 +122,7 @@ model.config.use_cache = False
 trainer.train()
 
 # Save the trained model to the specified directory
-trainer.save_model("results/T5-Finetune-Arunabh")
+trainer.save_model("results/T5-Finetune-sachin")
 
 # Save the training logs to an Excel file for further analysis
 df = pd.DataFrame(log_callback.training_logs)

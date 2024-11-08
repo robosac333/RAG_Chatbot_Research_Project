@@ -8,7 +8,7 @@ You are a helpful and informative assistant. Your goal is to answer questions ac
 """
 
 # Load the tokenizer and model for Llama-2
-model_path = r"C:\Users\Computing\Downloads\Two Models\llm-llama\llm-llama\llama-2-7b-arunabh"
+model_path = r"C:\Users\Computing\Downloads\Two Models\llm-llama\llm-llama\llama-2-7b-sachin"
 
 # Initialize the tokenizer from the pre-trained model path, enabling remote code execution
 tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
