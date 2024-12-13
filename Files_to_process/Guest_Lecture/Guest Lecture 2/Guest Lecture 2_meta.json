@@ -1,0 +1,54 @@
+{
+    "languages": null,
+    "filetype": "pdf",
+    "pdf_toc": [],
+    "pages": 2,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0,
+        "ocr_engine": "none"
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 0,
+        "equations": {
+            "successful_ocr": 0,
+            "unsuccessful_ocr": 0,
+            "equations": 0
+        }
+    },
+    "computed_toc": [
+        {
+            "title": "Guest Lecture 2 - Feedback",
+            "level": 1,
+            "page": 0
+        },
+        {
+            "title": "Foundations of Autonomous Systems",
+            "level": 2,
+            "page": 0
+        },
+        {
+            "title": "Building Blocks of AI and Autonomous Systems",
+            "level": 2,
+            "page": 1
+        },
+        {
+            "title": "Bridging Neural Networks and Symbolic AI",
+            "level": 2,
+            "page": 1
+        },
+        {
+            "title": "Concluding Insights",
+            "level": 2,
+            "page": 1
+        },
+        {
+            "title": "Questions",
+            "level": 2,
+            "page": 1
+        }
+    ]
+}

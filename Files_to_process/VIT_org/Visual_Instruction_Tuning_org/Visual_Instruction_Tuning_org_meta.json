@@ -1,0 +1,170 @@
+{
+    "languages": null,
+    "filetype": "pdf",
+    "pdf_toc": [
+        {
+            "title": "Introduction",
+            "level": 0,
+            "page": 0
+        },
+        {
+            "title": "Related Work",
+            "level": 0,
+            "page": 1
+        },
+        {
+            "title": "GPT-assisted Visual Instruction Data Generation",
+            "level": 0,
+            "page": 1
+        },
+        {
+            "title": "Visual Instruction Tuning",
+            "level": 0,
+            "page": 3
+        },
+        {
+            "title": "Architecture",
+            "level": 1,
+            "page": 3
+        },
+        {
+            "title": "Training",
+            "level": 1,
+            "page": 3
+        },
+        {
+            "title": "Experiments",
+            "level": 0,
+            "page": 4
+        },
+        {
+            "title": "Multimodal Chatbot",
+            "level": 1,
+            "page": 4
+        },
+        {
+            "title": "ScienceQA",
+            "level": 1,
+            "page": 7
+        },
+        {
+            "title": "Conclusion",
+            "level": 0,
+            "page": 8
+        },
+        {
+            "title": "Broader Impact",
+            "level": 0,
+            "page": 13
+        },
+        {
+            "title": "More Results",
+            "level": 0,
+            "page": 13
+        },
+        {
+            "title": "Training Details",
+            "level": 0,
+            "page": 19
+        },
+        {
+            "title": "Assets",
+            "level": 0,
+            "page": 19
+        },
+        {
+            "title": "Data",
+            "level": 0,
+            "page": 19
+        },
+        {
+            "title": "Prompts",
+            "level": 0,
+            "page": 20
+        }
+    ],
+    "pages": 10,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0,
+        "ocr_engine": "none"
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 5,
+        "equations": {
+            "successful_ocr": 4,
+            "unsuccessful_ocr": 1,
+            "equations": 5
+        }
+    },
+    "computed_toc": [
+        {
+            "title": "Visual Instruction Tuning",
+            "level": 1,
+            "page": 0
+        },
+        {
+            "title": "Abstract",
+            "level": 2,
+            "page": 0
+        },
+        {
+            "title": "1 Introduction",
+            "level": 2,
+            "page": 0
+        },
+        {
+            "title": "2 Related Work",
+            "level": 2,
+            "page": 1
+        },
+        {
+            "title": "3 GPT-assisted Visual Instruction Data Generation",
+            "level": 2,
+            "page": 1
+        },
+        {
+            "title": "4 Visual Instruction Tuning",
+            "level": 2,
+            "page": 3
+        },
+        {
+            "title": "4.1 Architecture",
+            "level": 3,
+            "page": 3
+        },
+        {
+            "title": "4.2 Training",
+            "level": 3,
+            "page": 3
+        },
+        {
+            "title": "5 Experiments",
+            "level": 2,
+            "page": 4
+        },
+        {
+            "title": "5.1 Multimodal Chatbot",
+            "level": 3,
+            "page": 4
+        },
+        {
+            "title": "5.2 ScienceQA",
+            "level": 3,
+            "page": 7
+        },
+        {
+            "title": "6 Conclusion",
+            "level": 2,
+            "page": 8
+        },
+        {
+            "title": "References",
+            "level": 2,
+            "page": 9
+        }
+    ]
+}
