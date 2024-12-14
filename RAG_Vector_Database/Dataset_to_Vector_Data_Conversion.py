@@ -1,12 +1,12 @@
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import PyPDFLoader, DirectoryLoader
-from langchain.vectorstores import FAISS
-from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain.schema import Document
 import os
 
 # Define the path to the dataset directory containing PDF and text files
-data_path = r"C:\Users\Computing\Downloads\LLM-T5-Model (2)\Flan-T5-Model\RAG-Dataset" 
+data_path = r"/mnt/d/gcodes/RAG_Chatbot_Research_Project/pdfs" 
 
 # Define the path where the FAISS vector database will be saved
 Db_faiss_path = "Vector_Data_Base_GTR_T5_Large"
@@ -18,17 +18,21 @@ class TextFileLoader:
 
     # Method to load text content from the file and wrap it into a Document object
     def load(self):
+        print("Reading Text file: ", self.file_path)
         with open(self.file_path, 'r', encoding='utf-8') as file:
             text = file.read()
         return [Document(page_content=text, metadata={'source': self.file_path})]
 
 # Function to create a vector database from documents
-def create_vector_db():
+def create_vector_db(data_path=data_path, Db_faiss_path=Db_faiss_path):
+    print("---------------------------------------------------------------")
+    
     documents = []  # Initialize a list to hold all documents
 
     # Load PDF documents from the specified directory using DirectoryLoader
     pdf_loader = DirectoryLoader(data_path, glob='*.pdf', loader_cls=PyPDFLoader)
     pdf_documents = pdf_loader.load()  # Load all PDFs into documents
+    [print("Retreiving PDF file: ", doc.metadata['source']) for doc in pdf_documents]
     documents.extend(pdf_documents)
 
     # Load all text files in the specified directory
@@ -51,6 +55,11 @@ def create_vector_db():
 
     # Save the FAISS database to the specified local path
     db.save_local(Db_faiss_path)
+
+    print("Data Retrived Successfully!")
+    print("--------------------------------------")
+    print(f"Saved Locally to : {Db_faiss_path}")
+    print("--------------------------------------")
 
 # Entry point for the script execution
 if __name__ == '__main__':

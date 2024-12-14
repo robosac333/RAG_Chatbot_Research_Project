@@ -26,7 +26,7 @@ quant_config = BitsAndBytesConfig(
 model = AutoModelForCausalLM.from_pretrained(
     base_model,
     quantization_config=quant_config,
-    device_map={"": 0}
+    device_map={"": 0},
 )
 
 model = prepare_model_for_kbit_training(model)
@@ -44,7 +44,10 @@ model = get_peft_model(model, peft_params)
 
 model.config.use_cache = False
 model.config.pretraining_tp = 1
-tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained(
+    base_model, 
+    trust_remote_code=True,
+)
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "right"
 
@@ -64,7 +67,7 @@ You are a helpful and informative assistant. Your goal is to answer questions ac
 
 embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/gtr-t5-large', 
                                    model_kwargs={'device': 'cuda'})
-Db_faiss_path = r"C:\Users\Computing\Downloads\Two Models\Flan-T5-Model\Flan-T5-Model\Vector_Data_Base_GTR_T5_Large"
+Db_faiss_path = r"/mnt/d/gcodes/RAG_Chatbot_Research_Project/Vector_Data_Base_GTR_T5_Large"
 db = FAISS.load_local(Db_faiss_path, embeddings, allow_dangerous_deserialization=True)
 
 def retrieve_context(query, k=10):

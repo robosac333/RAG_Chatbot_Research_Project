@@ -1,3 +1,21 @@
+## Mistral_7b RAG
+#### - Zahir Mahammad
+---
+Install using requirements.txt
+```
+pip install -r requirements.txt
+```
+
+In the script "_run_mistral.py_" adjust the folder path of pdf/text files and faiss store path
+
+Run the script
+```
+python run_mistral.py
+```
+---
+
+
+
 # RAG_Chatbot_Research_Project
 
 Welcome to the RAG Chatbot Research Project repository! This project aims to create a RAG chatbot utilizing advanced Large Language Models (LLMs) and a Retrieval-Augmented Generation (RAG) system. The repository includes all relevant code, datasets, and tools required for this research.
