@@ -1,6 +1,7 @@
 ## Mistral_7b RAG
 #### - Zahir Mahammad
 ---
+### Run terminal based Chatbot
 Install using requirements.txt
 ```
 pip install -r requirements.txt
@@ -12,8 +13,11 @@ Run the script
 ```
 python run_mistral.py
 ```
----
 
+### Run web-based Chatbot
+```
+python Chatbot/Website_Code_for_Llama_Model_Only/app.py
+```
 
 
 # RAG_Chatbot_Research_Project
