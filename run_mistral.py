@@ -4,7 +4,7 @@ from RAG_Vector_Database.Dataset_to_Vector_Data_Conversion import create_vector_
 
 
 # Set pdf folder path
-data_path = r"/mnt/d/gcodes/RAG_Chatbot_Research_Project/pdfs"
+data_path = r"pdfs"
 
 # Create vector database storing path
 Db_faiss_path = "Vector_Data_Base_GTR_T5_Large"

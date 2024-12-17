@@ -19,6 +19,18 @@ python run_mistral.py
 python Chatbot/Website_Code_for_Llama_Model_Only/app.py
 ```
 
+### Run Web-based Chatbot in Nexus Cluster
+Run the command to launch the web interface in nexus
+```
+python Chatbot/Website_Code_for_Llama_Model_Only/app.py
+```
+Forward the port to your local system
+```
+ssh -L 5000:127.0.0.1:5000 username@ip-address
+```
+5000:127.0.0.1:5000, 5000 is the local system's port [you can change the port to whatever you want]
+
+127.0.0.1:5000 is the remote machine's ip port on which flask is running
 
 # RAG_Chatbot_Research_Project
 

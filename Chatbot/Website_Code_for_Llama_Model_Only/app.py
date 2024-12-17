@@ -10,7 +10,7 @@ from transformers import GPTQConfig
 from transformers import AutoModelForCausalLM
 
 # Initialize Flask app and specify the template folder path for rendering HTML pages
-app = Flask(__name__, template_folder=r'/mnt/d/gcodes/RAG_Chatbot_Research_Project/Chatbot/Website_Code_for_Llama_Model_Only/template')
+app = Flask(__name__, template_folder='/fs/nexus-scratch/zahirmd/RAG_Chatbot_Research_Project/Chatbot/Website_Code_for_Llama_Model_Only/template')
 
 # System prompt used to instruct the model on how to respond to user queries
 system_prompt = """
@@ -55,7 +55,7 @@ generation_config = GenerationConfig(
 # Load the HuggingFace embeddings model and the FAISS vector store for retrieving relevant documents
 embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/gtr-t5-large', 
                                    model_kwargs={'device': 'cuda'})
-Db_faiss_path = r"/mnt/d/gcodes/RAG_Chatbot_Research_Project/Vector_Data_Base_GTR_T5_Large"
+Db_faiss_path = r"Vector_Data_Base_GTR_T5_Large"
 # Load the FAISS database from the specified path, allowing potentially unsafe deserialization
 db = FAISS.load_local(Db_faiss_path, embeddings, allow_dangerous_deserialization=True)
 
@@ -117,4 +117,4 @@ def chat():
 
 # Entry point for the Flask application
 if __name__ == "__main__":
-    app.run(debug=True)  # Run the Flask app in debug mode
+    app.run(host='0.0.0.0', debug=True)  # Run the Flask app in debug mode
