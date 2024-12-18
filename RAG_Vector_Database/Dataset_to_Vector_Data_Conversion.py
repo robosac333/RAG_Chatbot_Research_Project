@@ -34,6 +34,7 @@ def create_vector_db(data_path=data_path, Db_faiss_path=Db_faiss_path):
     pdf_documents = pdf_loader.load()  # Load all PDFs into documents
     [print("Retreiving PDF file: ", doc.metadata['source']) for doc in pdf_documents]
     documents.extend(pdf_documents)
+    print(len(pdf_documents), "PDF files loaded.")
 
     # Load all text files in the specified directory
     txt_files = [f for f in os.listdir(data_path) if f.endswith('.txt')]
@@ -46,7 +47,7 @@ def create_vector_db(data_path=data_path, Db_faiss_path=Db_faiss_path):
     # Split the loaded documents into smaller chunks using a text splitter
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     texts = text_splitter.split_documents(documents)
-
+    print(len(texts), "chunks created from the documents.")
     # Create embeddings using a pre-trained HuggingFace model (GTR-T5-Large)
     embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/gtr-t5-large', 
                                         model_kwargs={'device': 'cuda'})

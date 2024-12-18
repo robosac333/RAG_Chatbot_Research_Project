@@ -127,8 +127,11 @@ def main(Db_faiss_path):
             break
         response, sources, response_time = get_response(user_input, db)  # Generate the response.
         print("Bot:", response)  # Display the response.
-        # print("Sources:", sources)  # Optionally display the sources (currently commented out).
+        print("------------------------------------")
+        print("Sources:", sources)  # Optionally display the sources (currently commented out).
         print(f"Time Taken to Respond: {response_time:.2f} seconds")  # Display the response time.
+        print("------------------------------------")
+
 
 # Entry point for the script, starting the chatbot.
 if __name__ == "__main__":

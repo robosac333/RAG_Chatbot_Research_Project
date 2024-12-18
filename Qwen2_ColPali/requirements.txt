@@ -3,3 +3,5 @@ pdf2image
 qwen-vl-utils 
 transformers
 torchvision
+opencv-python
+PyMuPDF
