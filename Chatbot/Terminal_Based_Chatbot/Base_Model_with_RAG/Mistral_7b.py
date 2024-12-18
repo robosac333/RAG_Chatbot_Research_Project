@@ -81,10 +81,13 @@ def rank_documents(query, docs):
     return docs 
 
 # Function to generate a response from the model based on the query and retrieved context.
-def generate_answer(query, context):
+def generate_answer(query, context, image_context=None):
     # Combine the context documents into a single text block to include in the prompt.
     context_text = "\n\n".join([doc.page_content for doc in context])
     
+    if image_context:
+        context_text = image_context + "\n\n" + context_text
+
     # Create a structured input for the model with a clear prompt, context, and user query.
     input_text = (
         system_prompt +
@@ -127,8 +130,8 @@ def main(Db_faiss_path):
             break
         response, sources, response_time = get_response(user_input, db)  # Generate the response.
         print("Bot:", response)  # Display the response.
-        print("------------------------------------")
-        print("Sources:", sources)  # Optionally display the sources (currently commented out).
+        # print("------------------------------------")
+        # print("Sources:", sources)  # Optionally display the sources (currently commented out).
         print(f"Time Taken to Respond: {response_time:.2f} seconds")  # Display the response time.
         print("------------------------------------")
 

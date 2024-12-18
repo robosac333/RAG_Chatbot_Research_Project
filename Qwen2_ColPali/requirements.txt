@@ -5,3 +5,5 @@ transformers
 torchvision
 opencv-python
 PyMuPDF
+soundfile
+torch
