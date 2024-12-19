@@ -9,7 +9,7 @@ from PIL import Image
 import time
 
 # Define the path to the dataset directory containing PDF and text files
-data_path = "/fs/nexus-scratch/zahirmd/RAG_Chatbot_Research_Project/pdfs" 
+data_path = "/mnt/d/gcodes/RAG_Chatbot_Research_Project/pdfs" 
 
 # Define the path where the FAISS vector database will be saved
 Db_faiss_path = "Vector_Data_Base_GTR_T5_Large"

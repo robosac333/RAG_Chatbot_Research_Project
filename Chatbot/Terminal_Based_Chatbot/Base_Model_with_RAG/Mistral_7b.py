@@ -9,6 +9,7 @@ import time
 from langchain_community.vectorstores import FAISS  # For working with vector stores
 from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings  # For generating embeddings using Hugging Face models
 from langchain.schema import Document  # For handling document schema
+from s2tv3 import AudioTranscriptionSystem  # For audio transcription
 
 
 # -----------------------------------------------------------------------------------------------------
@@ -60,6 +61,7 @@ You are a helpful and informative assistant. Your goal is to answer questions ac
 embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/gtr-t5-large', 
                                    model_kwargs={'device': 'cuda'})
 
+ATS = AudioTranscriptionSystem()
 # ---------------------------------------------------------------------------------------------------------------
 
 def retrieve_faiss(Db_faiss_path):
@@ -124,16 +126,50 @@ def main(Db_faiss_path):
     print("Type 'exit' to end the conversation.")
     
     while True:
-        user_input = input("You: ")  # Get user input.
-        if user_input.lower() == 'exit':  # Exit if the user types 'exit'.
-            print("Goodbye!")
-            break
-        response, sources, response_time = get_response(user_input, db)  # Generate the response.
-        print("Bot:", response)  # Display the response.
-        # print("------------------------------------")
-        # print("Sources:", sources)  # Optionally display the sources (currently commented out).
-        print(f"Time Taken to Respond: {response_time:.2f} seconds")  # Display the response time.
-        print("------------------------------------")
+
+        duration = 5
+        with ATS.tempfile.TemporaryDirectory() as temp_dir:
+            # Create temporary file paths
+            temp_dir = ATS.Path(temp_dir)
+            input_file = temp_dir / "input.wav"
+            output_file = temp_dir / "output.mp3"
+
+            try:
+
+                # Record and save audio
+                audio_data = ATS.record_audio(duration)
+                ATS.save_audio(audio_data, str(input_file))
+                # Transcribe audio
+                transcribed_text = ATS.transcribe_audio(str(input_file))
+                print(f"Transcription: {transcribed_text}")
+
+
+
+                # user_input = input("You: ")  # Get user input.
+                user_input = transcribed_text
+                    
+                if user_input.lower() == 'exit':  # Exit if the user types 'exit'.
+                    print("Goodbye!")
+                    break
+                response, sources, response_time = get_response(user_input, db)  # Generate the response.
+                print("Bot:", response)  # Display the response.
+                # print("------------------------------------")
+                # print("Sources:", sources)  # Optionally display the sources (currently commented out).
+                print(f"Time Taken to Respond: {response_time:.2f} seconds")  # Display the response time.
+                print("------------------------------------")
+
+
+                # Convert transcription to speech and play
+                ATS.text_to_speech(response, str(output_file))
+                print("Playing transcribed text...")
+                ATS.play_audio(str(output_file))
+                
+                return response
+                
+            except Exception as e:
+                print(f"Error during processing: {str(e)}")
+                return None
+
 
 
 # Entry point for the script, starting the chatbot.
