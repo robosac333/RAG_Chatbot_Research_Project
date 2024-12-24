@@ -29,14 +29,14 @@ python RAG_Vector_Database/Dataset_to_Vector_Data_Conversion.py
 ```
 This will create text based Vector Indexing in the **Vector_Data_Base_GTR_T5_Large** Folder.
 
-![Combined Model](assets/colpali.png)
+<img src="assets/colpali.png" alt="Combined model with image and text based retrieval" width="600" height="600">
 
 ## Run Inference on Combined Model
 To run inference based on the creted Indexing make path changes in the combined.py and run the code using 
 ```sh
 python combined.py
 ```
-![Results](assets/Results.png)
+<img src="assets/Results.png" alt="Results on the combined model inference" width="600" height="400">
 
 ### Core Elements:
 - **Document Parsing**: Split text and PDFs into 500-character chunks with a 50-character overlap.
