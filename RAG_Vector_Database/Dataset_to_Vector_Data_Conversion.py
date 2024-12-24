@@ -6,10 +6,10 @@ from langchain.schema import Document
 import os
 
 # Define the path to the dataset directory containing PDF and text files
-data_path = r"/mnt/d/gcodes/RAG_Chatbot_Research_Project/pdfs" 
+data_path = "/nfshomes/sjd3333/RAG_Chatbot_Research_Project/img_pdfs" 
 
 # Define the path where the FAISS vector database will be saved
-Db_faiss_path = "Vector_Data_Base_GTR_T5_Large"
+Db_faiss_path = "/nfshomes/sjd3333/RAG_Chatbot_Research_Project/Vector_Data_Base_GTR_T5_Large"
 
 # Custom class to load text files
 class TextFileLoader:

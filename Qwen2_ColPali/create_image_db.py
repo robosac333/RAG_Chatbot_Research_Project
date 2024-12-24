@@ -22,7 +22,7 @@ def convert_pdfs_to_images(pdf_folder):
 
     return all_images, file_names
 
-all_images, file_names = convert_pdfs_to_images("Qwen2_ColPali/data")
+all_images, file_names = convert_pdfs_to_images("/nfshomes/sjd3333/RAG_Chatbot_Research_Project/img_pdfs")
 # ---------------------------------------------------------------
 
 
@@ -34,7 +34,7 @@ from byaldi import RAGMultiModalModel
 docs_retrieval_model = RAGMultiModalModel.from_pretrained("vidore/colpali-v1.2")
 # input the path to the data folder containing the PDFs 
 # This creates the indexes of pdfs and assingn a unique name using index_name
-docs_retrieval_model.index(input_path="Qwen2_ColPali/data", index_name="image_index", store_collection_with_index=False, overwrite=True)
+docs_retrieval_model.index(input_path="RAG_Chatbot_Research_Project/img_pdfs", index_name="image_index", store_collection_with_index=False, overwrite=True)
 # ---------------------------------------------------------------
 
 

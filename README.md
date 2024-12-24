@@ -1,8 +1,14 @@
-## Mistral_7b RAG
-#### - Zahir Mahammad
+# RAG_Chatbot_Research_Project
+
+Welcome to the RAG Chatbot Research Project repository! This project aims to create a RAG chatbot utilizing advanced Large Language Models (LLMs) and Vision Language Models (VLMs) to create a Retrieval-Augmented Generation (RAG) system. The repository includes all relevant code, datasets, and tools required for this research.
+
+### Project Highlights
+- Utilizes **GPUs** for accelerated processing.
+- Recommended configuration: **15 GB RAM** and **15-20 GB of GPU shared memory** for optimal performance.
+
 ---
 ### Run terminal based Chatbot
-Install using requirements.txt
+Create a conda environment and Install all the dependencies using requirements.txt
 ```
 pip install -r requirements.txt
 ```
@@ -14,62 +20,23 @@ Run the script
 python run_mistral.py
 ```
 
-### Run web-based Chatbot
-```
-python Chatbot/Website_Code_for_Llama_Model_Only/app.py
-```
-
-### Run Web-based Chatbot in Nexus Cluster
-Run the command to launch the web interface in nexus
-```
-python Chatbot/Website_Code_for_Llama_Model_Only/app.py
-```
-Forward the port to your local system
-```
-ssh -L 5000:127.0.0.1:5000 username@ip-address
-```
-5000:127.0.0.1:5000, 5000 is the local system's port [you can change the port to whatever you want]
-
-127.0.0.1:5000 is the remote machine's ip port on which flask is running
-
-# RAG_Chatbot_Research_Project
-
-Welcome to the RAG Chatbot Research Project repository! This project aims to create a RAG chatbot utilizing advanced Large Language Models (LLMs) and a Retrieval-Augmented Generation (RAG) system. The repository includes all relevant code, datasets, and tools required for this research.
-
----
-
-## 📋 Project Overview
-
-This study is designed to fine-tune LLMs for RAG chatbot applications without human participants, relying entirely on numerical performance metrics.
-
-### Project Highlights
-- Utilizes **GPUs** for accelerated processing.
-- Recommended configuration: **15 GB RAM** and **15-20 GB of GPU shared memory** for optimal performance.
-
----
-
-## 📊 Datasets
-
-The project involves training LLMs on two primary datasets, with additional datasets for evaluation:
-
-1. **Meadow-MedQA** (Hugging Face): Includes 10,178 training entries, each with inputs, instructions, and outputs.
-2. **MedMCQA** (Kaggle): A multiple-choice dataset with 194,000 questions spanning 21 RAG subjects. Data is split into training, testing, and validation sets.
-
-**Evaluation Datasets:**
-- **USMLE MedQA** for MCQ evaluation.
-- **Comprehensive RAG Q&A** for subjective question assessment.
-
-#### Dataset References
-| Datasets                     | Related Research Paper                                                                 | Website Link                                                                                     |
-|------------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| RAG-Meadow-MedQA          | Medalpaca - an open-source collection of RAG conversational AI models and training data (Han. T., 2023) | [RAG-Meadow-MedQA](https://huggingface.co/datasets/medalpaca/RAG_meadow_medqa)           |
-| MedMCQA                       | MedMCQA : A Large-scale Multi-Subject Multi-Choice Dataset for RAG domain Question Answering (Pal, 2022)  | [MedMCQA](https://www.kaggle.com/datasets/thedevastator/medmcqa-RAG-mcq-dataset)             |
-| USMLE MedQA                   | Towards Expert-Level RAG Question Answering with Large Language Models (Singhal. K, 2023)   | [USMLE MedQA](https://www.kaggle.com/datasets/moaaztameer/medqa-usmle)                           |
-| Comprehensive RAG Q&A     | A question-entailment approach to question answering (Abacha. A.B, 2019)                     | [Comprehensive RAG Q&A](https://www.kaggle.com/datasets/thedevast
-
 ## 🗄️ Vector Database Architecture
 
-The chatbot’s knowledge base was built from RAG texts, parsed and chunked into segments. 
+The chatbot’s knowledge base was built from RAG texts, parsed and chunked into segments. You may insert all the pdfs that may be image based or text based in the pdf folder and create the vector indexing for reference using the following command
+
+```sh
+python RAG_Vector_Database/Dataset_to_Vector_Data_Conversion.py
+```
+This will create text based Vector Indexing in the **Vector_Data_Base_GTR_T5_Large** Folder.
+
+![Combined Model](assets/colpali.png)
+
+## Run Inference on Combined Model
+To run inference based on the creted Indexing make path changes in the combined.py and run the code using 
+```sh
+python combined.py
+```
+![Results](assets/Results.png)
 
 ### Core Elements:
 - **Document Parsing**: Split text and PDFs into 500-character chunks with a 50-character overlap.
@@ -90,16 +57,6 @@ Files:
 
 ---
 
-## 🔧 Fine-Tuning Large Language Models (LLMs)
-
-The project leverages three distinct LLMs to power the chatbot:
-
-1. **Flan-T5-Large**: A quantized encoder-decoder model trained with LoRA for memory efficiency.
-2. **LLaMA-2-7B**: A decoder-only, chat-optimized model with 4-bit quantization.
-3. **Mistral-7B**: A GPTQ-quantized model similar to LLaMA but with optimized efficiency.
-
----
-
 ## 🔄 Chatbot System Design
 
 ### 1. Base Model with RAG
@@ -112,12 +69,6 @@ Combines user query embeddings with the `FAISS` vector database for context-awar
 | `temperature`  | 0.1      |
 | `max_new_tokens` | 150   |
 
-### 2. Fine-tuned Model without RAG
-Directly generates responses using the LLM without additional context from a vector database.
-
-### 3. Fine-tuned Model with RAG
-Combines the fine-tuned model and RAG, pulling relevant RAG information from the vector database before generating responses.
-
 ---
 
 ## 🌐 Web-Based Chatbot Interface
@@ -126,10 +77,27 @@ The project includes a web-based chatbot using **Flask** for the backend, enabli
 
 ---
 
-## 📖 Citation and Resources
+### Run web-based Chatbot
+```
+python Chatbot/website_app/app.py
+```
 
-- **Meadow-MedQA** dataset on Hugging Face
-- **MedMCQA** dataset on Kaggle
+---
+
+### Run Web-based Chatbot in Nexus Cluster
+Run the command to launch the web interface in nexus
+```
+python Chatbot/website_app/app.py
+```
+Forward the port to your local system
+```
+ssh -L 5000:127.0.0.1:5000 username@ip-address
+```
+5000:127.0.0.1:5000, 5000 is the local system's port [you can change the port to whatever you want]
+
+127.0.0.1:5000 is the remote machine's ip port on which flask is running
+
+---
 
 Additional libraries and tools:
 - [LangChain](https://github.com/hwchase17/langchain)
